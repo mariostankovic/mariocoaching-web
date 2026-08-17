@@ -1,13 +1,11 @@
 {
   "items": [
     {
-      "before_image": "images/uploads/whatsapp-image-2026-08-14-at-13.53.49.jpeg",
-      "after_image": "images/uploads/whatsapp-image-2026-08-14-at-13.55.15-4-.jpeg",
-      "label": ""
+      "image": "",
+      "label": "Transformacija 1"
     },
     {
-      "before_image": "",
-      "after_image": "",
+      "image": "",
       "label": "Transformacija 2"
     }
   ]

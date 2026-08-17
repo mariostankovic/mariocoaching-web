@@ -1,0 +1,56 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "images/uploads"
+
+collections:
+  - name: "transformations"
+    label: "Transformacije (prije/poslije)"
+    files:
+      - name: "transformations"
+        label: "Lista transformacija"
+        file: "content/transformations.json"
+        fields:
+          - name: "items"
+            label: "Transformacije"
+            widget: "list"
+            label_singular: "Transformacija"
+            fields:
+              - {name: "label", label: "Naziv (interno, npr. ime klijenta)", widget: "string", required: false}
+              - {name: "before_image", label: "Fotografija PRIJE", widget: "image", required: false}
+              - {name: "after_image", label: "Fotografija POSLIJE", widget: "image", required: false}
+
+  - name: "testimonials"
+    label: "Recenzije"
+    files:
+      - name: "testimonials"
+        label: "Lista recenzija"
+        file: "content/testimonials.json"
+        fields:
+          - name: "items"
+            label: "Recenzije"
+            widget: "list"
+            label_singular: "Recenzija"
+            fields:
+              - {name: "quote", label: "Tekst recenzije", widget: "text"}
+              - {name: "name", label: "Ime osobe (ili 'Primjer recenzije')", widget: "string"}
+
+  - name: "settings"
+    label: "Postavke stranice"
+    files:
+      - name: "settings"
+        label: "Naslovna fotografija i O meni"
+        file: "content/settings.json"
+        fields:
+          - {name: "hero_image", label: "Naslovna fotografija (hero)", widget: "image"}
+          - {name: "about_title", label: "O meni naslov", widget: "string"}
+          - {name: "about_text", label: "O meni tekst (prazan red = novi paragraf)", widget: "text"}
+          - name: "about_carousel"
+            label: "O meni karusel fotografija"
+            widget: "list"
+            label_singular: "Fotografija"
+            fields:
+              - {name: "image", label: "Fotografija", widget: "image", required: false}
+              - {name: "label", label: "Opis (interno)", widget: "string", required: false}

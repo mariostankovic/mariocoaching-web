@@ -1,0 +1,11 @@
+{
+  "hero_image": "images/hero-portret.jpg",
+  "about_title": "Bok, ja sam Mario",
+  "about_text": "Nisam se rodio fit, baš kao ni ti. Kao klinac sam probao razne sportove, ali nijedan me nije stvarno zadržao, sve dok sa 17 godina nisam prvi put ušao u teretanu. Nešto se tu upalilo u meni. Svidjelo mi se što je bilo teško, ali sam za trud dobivao rezultat koji sam mogao vidjeti i osjetiti.\n\nNisam odmah sve znao. Satima sam istraživao, čitao i isprobavao razne stvari na sebi, dok nisam naučio kako moje tijelo zapravo reagira i radi. Onda su me prijatelji počeli pitati za savjete, pa sam počeo trenirati i njih. Tada sam prvi put u životu osjetio da svojim znanjem i iskustvom stvarno nekome pomažem, i to je bio trenutak kad sam znao što želim raditi.\n\nZavršio sam Bodybuilding i fitness učilište i od tada radim s ljudima. Do sada sam surađivao s preko 70 klijenata, svaki sa svojom pričom, svojim ciljem i svojim izazovima.\n\nZnam kako je biti nezadovoljan svojim tijelom. Znam kako je misliti da se taj višak na trbuhu nikad neće maknuti, ili da mišići jednostavno neće rasti koliko god se trudio. Znam i kako je nakon ozljede, kad ti se čini da se povratak u formu nikad neće dogoditi. Sve sam to prošao, i baš zato znam koliko je važno imati nekoga uz sebe tko razumije kroz što prolaziš.\n\nMoj cilj je pokazati ti da fitness ne mora biti komplicirana i naporna obaveza, nego dio tvoje svakodnevice u kojoj uživaš. Ne postoji dobra i loša hrana, samo izbori koje pravimo i sklad koji tražimo. Kretanje i treniranje nisu kazna, oni ti zapravo vraćaju energiju, samopouzdanje i osjećaj da imaš kontrolu nad svojim tijelom.\n\nVjerujem da svaka osoba, uz prave smjernice i vlastiti trud, može doći do rezultata koji želi. Ti taj put ne moraš proći sam. Uz nekoga tko je to sve već prošao i tko će te voditi korak po korak, put je puno lakši, a rezultati dolaze brže i traju duže.",
+  "about_carousel": [
+    {"image": "", "label": "Prije / poslije (transformacija)"},
+    {"image": "", "label": "Moj put, 1. dio"},
+    {"image": "", "label": "Moj put, 2. dio"},
+    {"image": "", "label": "Moj put, 3. dio"}
+  ]
+}

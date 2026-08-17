@@ -451,7 +451,7 @@
   }
   .compare{
     position:relative;
-    aspect-ratio:4/3;
+    aspect-ratio:3/4;
     border-radius:4px;
     overflow:hidden;
     border:1px solid var(--line);
@@ -787,7 +787,7 @@
         </div>
       </div>
       <div class="hero-portrait">
-        <img src="images/hero-portret.jpg" alt="Mario, osobni trener" style="width:100%; height:100%; object-fit:cover; border-radius:4px; position:relative; z-index:1;">
+        <img id="heroImage" src="images/hero-portret.jpg" alt="Mario, osobni trener" style="width:100%; height:100%; object-fit:cover; border-radius:4px; position:relative; z-index:1;">
       </div>
     </div>
   </section>
@@ -797,10 +797,7 @@
     <div class="wrap about-grid">
       <div class="about-carousel" id="aboutCarousel">
         <div class="carousel-track" id="carouselTrack">
-          <div class="carousel-slide">Prije / poslije (transformacija)</div>
-          <div class="carousel-slide">Slika: moj put, 1. dio</div>
-          <div class="carousel-slide">Slika: moj put, 2. dio</div>
-          <div class="carousel-slide">Slika: moj put, 3. dio</div>
+          <!-- Slike se generiraju automatski iz content/settings.json (about_carousel) -->
         </div>
         <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Prethodna slika">‹</button>
         <button class="carousel-btn carousel-next" id="carouselNext" aria-label="Sljedeća slika">›</button>
@@ -808,13 +805,15 @@
       </div>
       <div class="about-text">
         <div class="eyebrow">O meni</div>
-        <h2 style="text-transform:uppercase; font-size:2rem; margin-bottom:20px;">Bok, ja sam Mario</h2>
-        <p>Nisam se rodio fit, baš kao ni ti. Kao klinac sam probao razne sportove, ali nijedan me nije stvarno zadržao, sve dok sa 17 godina nisam prvi put ušao u teretanu. Nešto se tu upalilo u meni. Svidjelo mi se što je bilo teško, ali sam za trud dobivao rezultat koji sam mogao vidjeti i osjetiti.</p>
-        <p>Nisam odmah sve znao. Satima sam istraživao, čitao i isprobavao razne stvari na sebi, dok nisam naučio kako moje tijelo zapravo reagira i radi. Onda su me prijatelji počeli pitati za savjete, pa sam počeo trenirati i njih. Tada sam prvi put u životu osjetio da svojim znanjem i iskustvom stvarno nekome pomažem, i to je bio trenutak kad sam znao što želim raditi.</p>
-        <p>Završio sam Bodybuilding i fitness učilište i od tada radim s ljudima. Do sada sam surađivao s preko 70 klijenata, svaki sa svojom pričom, svojim ciljem i svojim izazovima.</p>
-        <p>Znam kako je biti nezadovoljan svojim tijelom. Znam kako je misliti da se taj višak na trbuhu nikad neće maknuti, ili da mišići jednostavno neće rasti koliko god se trudio. Znam i kako je nakon ozljede, kad ti se čini da se povratak u formu nikad neće dogoditi. Sve sam to prošao, i baš zato znam koliko je važno imati nekoga uz sebe tko razumije kroz što prolaziš.</p>
-        <p>Moj cilj je pokazati ti da fitness ne mora biti komplicirana i naporna obaveza, nego dio tvoje svakodnevice u kojoj uživaš. Ne postoji dobra i loša hrana, samo izbori koje pravimo i sklad koji tražimo. Kretanje i treniranje nisu kazna, oni ti zapravo vraćaju energiju, samopouzdanje i osjećaj da imaš kontrolu nad svojim tijelom.</p>
-        <p>Vjerujem da svaka osoba, uz prave smjernice i vlastiti trud, može doći do rezultata koji želi. Ti taj put ne moraš proći sam. Uz nekoga tko je to sve već prošao i tko će te voditi korak po korak, put je puno lakši, a rezultati dolaze brže i traju duže.</p>
+        <h2 id="aboutTitle" style="text-transform:uppercase; font-size:2rem; margin-bottom:20px;">Bok, ja sam Mario</h2>
+        <div id="aboutText">
+          <p>Nisam se rodio fit, baš kao ni ti. Kao klinac sam probao razne sportove, ali nijedan me nije stvarno zadržao, sve dok sa 17 godina nisam prvi put ušao u teretanu. Nešto se tu upalilo u meni. Svidjelo mi se što je bilo teško, ali sam za trud dobivao rezultat koji sam mogao vidjeti i osjetiti.</p>
+          <p>Nisam odmah sve znao. Satima sam istraživao, čitao i isprobavao razne stvari na sebi, dok nisam naučio kako moje tijelo zapravo reagira i radi. Onda su me prijatelji počeli pitati za savjete, pa sam počeo trenirati i njih. Tada sam prvi put u životu osjetio da svojim znanjem i iskustvom stvarno nekome pomažem, i to je bio trenutak kad sam znao što želim raditi.</p>
+          <p>Završio sam Bodybuilding i fitness učilište i od tada radim s ljudima. Do sada sam surađivao s preko 70 klijenata, svaki sa svojom pričom, svojim ciljem i svojim izazovima.</p>
+          <p>Znam kako je biti nezadovoljan svojim tijelom. Znam kako je misliti da se taj višak na trbuhu nikad neće maknuti, ili da mišići jednostavno neće rasti koliko god se trudio. Znam i kako je nakon ozljede, kad ti se čini da se povratak u formu nikad neće dogoditi. Sve sam to prošao, i baš zato znam koliko je važno imati nekoga uz sebe tko razumije kroz što prolaziš.</p>
+          <p>Moj cilj je pokazati ti da fitness ne mora biti komplicirana i naporna obaveza, nego dio tvoje svakodnevice u kojoj uživaš. Ne postoji dobra i loša hrana, samo izbori koje pravimo i sklad koji tražimo. Kretanje i treniranje nisu kazna, oni ti zapravo vraćaju energiju, samopouzdanje i osjećaj da imaš kontrolu nad svojim tijelom.</p>
+          <p>Vjerujem da svaka osoba, uz prave smjernice i vlastiti trud, može doći do rezultata koji želi. Ti taj put ne moraš proći sam. Uz nekoga tko je to sve već prošao i tko će te voditi korak po korak, put je puno lakši, a rezultati dolaze brže i traju duže.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -1055,10 +1054,10 @@
       if(!grid || !data.items) return;
       grid.innerHTML = data.items.map(item => `
         <div class="compare" data-compare>
-          <div class="compare-before" ${item.before_image ? `style="background-image:url('${item.before_image}'); background-size:cover; background-position:center;"` : ''}>
+          <div class="compare-before" ${item.before_image ? `style="background-image:url('${item.before_image}'); background-size:cover; background-position:center top;"` : ''}>
             ${!item.before_image ? '<span>PRIJE</span><span>Dodaj fotografiju "prije"</span>' : ''}
           </div>
-          <div class="compare-after" data-compare-after ${item.after_image ? `style="background-image:url('${item.after_image}'); background-size:cover; background-position:center;"` : ''}>
+          <div class="compare-after" data-compare-after ${item.after_image ? `style="background-image:url('${item.after_image}'); background-size:cover; background-position:center top;"` : ''}>
             ${!item.after_image ? '<span>POSLIJE</span><span>Dodaj fotografiju "poslije"</span>' : ''}
           </div>
           <div class="compare-handle" data-compare-handle></div>
@@ -1085,39 +1084,78 @@
     })
     .catch(() => {});
 
-  // About carousel
-  const track = document.getElementById('carouselTrack');
-  const slides = track.children;
-  const dotsWrap = document.getElementById('carouselDots');
-  const prevBtn = document.getElementById('carouselPrev');
-  const nextBtn = document.getElementById('carouselNext');
-  let current = 0;
+  // Load hero image, about title/text, and about carousel from content/settings.json
+  fetch('content/settings.json')
+    .then(r => r.json())
+    .then(data => {
+      const heroImage = document.getElementById('heroImage');
+      if(heroImage && data.hero_image){
+        heroImage.src = data.hero_image;
+      }
 
-  for(let i=0; i<slides.length; i++){
-    const dot = document.createElement('button');
-    dot.className = 'carousel-dot' + (i===0 ? ' active' : '');
-    dot.setAttribute('aria-label', 'Slika ' + (i+1));
-    dot.addEventListener('click', () => goTo(i));
-    dotsWrap.appendChild(dot);
-  }
-  const dots = dotsWrap.children;
+      const aboutTitle = document.getElementById('aboutTitle');
+      if(aboutTitle && data.about_title){
+        aboutTitle.textContent = data.about_title;
+      }
 
-  function goTo(i){
-    current = (i + slides.length) % slides.length;
-    track.style.transform = `translateX(-${current * 100}%)`;
-    for(let d=0; d<dots.length; d++){
-      dots[d].classList.toggle('active', d === current);
+      const aboutText = document.getElementById('aboutText');
+      if(aboutText && data.about_text){
+        aboutText.innerHTML = data.about_text
+          .split(/\n\s*\n/)
+          .map(paragraph => `<p>${paragraph.trim()}</p>`)
+          .join('');
+      }
+
+      const track = document.getElementById('carouselTrack');
+      if(track && data.about_carousel && data.about_carousel.length){
+        track.innerHTML = data.about_carousel.map(slide => `
+          <div class="carousel-slide" ${slide.image ? `style="background-image:url('${slide.image}'); background-size:cover; background-position:center top; color:transparent;"` : ''}>
+            ${slide.label || ''}
+          </div>
+        `).join('');
+      }
+
+      initCarousel();
+    })
+    .catch(() => { initCarousel(); });
+
+  // About carousel logic
+  function initCarousel(){
+    const track = document.getElementById('carouselTrack');
+    const slides = track.children;
+    const dotsWrap = document.getElementById('carouselDots');
+    const prevBtn = document.getElementById('carouselPrev');
+    const nextBtn = document.getElementById('carouselNext');
+    if(!slides.length) return;
+    let current = 0;
+
+    dotsWrap.innerHTML = '';
+    for(let i=0; i<slides.length; i++){
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i===0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Slika ' + (i+1));
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(dot);
     }
-  }
-  prevBtn.addEventListener('click', () => goTo(current - 1));
-  nextBtn.addEventListener('click', () => goTo(current + 1));
+    const dots = dotsWrap.children;
 
-  let touchStartX = 0;
-  track.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
-  track.addEventListener('touchend', (e) => {
-    const diff = e.changedTouches[0].clientX - touchStartX;
-    if(Math.abs(diff) > 40){ diff < 0 ? goTo(current + 1) : goTo(current - 1); }
-  });
+    function goTo(i){
+      current = (i + slides.length) % slides.length;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      for(let d=0; d<dots.length; d++){
+        dots[d].classList.toggle('active', d === current);
+      }
+    }
+    prevBtn.addEventListener('click', () => goTo(current - 1));
+    nextBtn.addEventListener('click', () => goTo(current + 1));
+
+    let touchStartX = 0;
+    track.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
+    track.addEventListener('touchend', (e) => {
+      const diff = e.changedTouches[0].clientX - touchStartX;
+      if(Math.abs(diff) > 40){ diff < 0 ? goTo(current + 1) : goTo(current - 1); }
+    });
+  }
 </script>
 
 </body>

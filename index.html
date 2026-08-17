@@ -611,7 +611,10 @@
     border:1px solid var(--line);
     border-radius:4px;
     overflow:hidden;
+    display:block;
+    transition:border-color 0.15s ease;
   }
+  .blog-card:hover{border-color:var(--blue);}
   .blog-thumb{
     aspect-ratio:16/10;
     background:linear-gradient(160deg, var(--panel-2), var(--void));
@@ -735,6 +738,16 @@
     font-size:0.85rem;
     color:var(--ice);
   }
+  .footer-socials{
+    display:flex;
+    gap:14px;
+  }
+  .footer-socials a{
+    color:var(--ice-dim);
+    display:flex;
+    transition:color 0.15s ease;
+  }
+  .footer-socials a:hover{color:var(--blue);}
 
   :focus-visible{
     outline:2px solid var(--blue);
@@ -764,9 +777,9 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <h1>Želiš napokon <em>izgledati i osjećati se dobro</em> u svom tijelu?</h1>
-        <p class="hero-subline">Bez dijeta i planova koje ne izdržiš dulje od tjedan dana.</p>
-        <p class="lead">Tu sam da to ostvarimo zajedno, korak po korak, uz plan i podršku na koju se stvarno možeš osloniti.</p>
+        <h1 id="heroTitle">Želiš napokon <em>izgledati i osjećati se dobro</em> u svom tijelu?</h1>
+        <p class="hero-subline" id="heroSubline">Bez dijeta i planova koje ne izdržiš dulje od tjedan dana.</p>
+        <p class="lead" id="heroLead">Tu sam da to ostvarimo zajedno, korak po korak, uz plan i podršku na koju se stvarno možeš osloniti.</p>
         <div class="hero-actions">
           <a href="#kontakt" class="btn btn-primary">Zakaži poziv</a>
           <a href="#usluge" class="btn btn-ghost">Pogledaj usluge</a>
@@ -830,8 +843,8 @@
         <div class="service-card featured">
           <span class="service-tag">Najtraženije</span>
           <h3>Online Coaching</h3>
-          <p class="desc">Potpuno personaliziran plan treninga i prehrane, praćenje napretka kroz aplikaciju, i direktan kontakt sa mnom kad god ti zatreba.</p>
-          <ul class="service-features">
+          <p class="desc" id="onlineDesc">Potpuno personaliziran plan treninga i prehrane, praćenje napretka kroz aplikaciju, i direktan kontakt sa mnom kad god ti zatreba.</p>
+          <ul class="service-features" id="onlineFeatures">
             <li>Individualni plan treninga prilagođen tvojoj opremi i rasporedu</li>
             <li>Plan prehrane bez ekstremnih zabrana</li>
             <li>Praćenje napretka kroz aplikaciju</li>
@@ -842,8 +855,8 @@
         <div class="service-card">
           <span class="service-tag">Osobni trening</span>
           <h3>Trening Uživo</h3>
-          <p class="desc">Ako si iz Zagreba, treniraj sa mnom uživo u mojoj privatnoj teretani, gdje imaš moju punu pažnju, prostor za sebe i tehniku koja se ispravlja u hodu, bez čekanja na spravu i bez tuđih pogleda.</p>
-          <ul class="service-features">
+          <p class="desc" id="uzivoDesc">Ako si iz Zagreba, treniraj sa mnom uživo u mojoj privatnoj teretani, gdje imaš moju punu pažnju, prostor za sebe i tehniku koja se ispravlja u hodu, bez čekanja na spravu i bez tuđih pogleda.</p>
+          <ul class="service-features" id="uzivoFeatures">
             <li>Individualno vođenje i stalna podrška trenera</li>
             <li>Treniraj bez gužve</li>
             <li>Praćenje napretka</li>
@@ -912,33 +925,10 @@
       <div class="section-head">
         <div class="eyebrow">Blog</div>
         <h2>Zadnji tekstovi</h2>
-        <p>Ovdje ću objavljivati tekstove o treningu, prehrani i mentalnoj higijeni. Za sada su ovo primjeri, svaki post kasnije može biti zasebna stranica.</p>
+        <p>Ovdje objavljujem tekstove o treningu, prehrani i mentalnoj higijeni.</p>
       </div>
-      <div class="blog-grid">
-        <article class="blog-card">
-          <div class="blog-thumb">Naslovna slika posta</div>
-          <div class="blog-body">
-            <span class="blog-cat">Trening</span>
-            <h3>Zašto ti "idealan" plan nikad neće raditi</h3>
-            <p>Primjer teksta, zamijeni stvarnim sadržajem kad objaviš prvi blog.</p>
-          </div>
-        </article>
-        <article class="blog-card">
-          <div class="blog-thumb">Naslovna slika posta</div>
-          <div class="blog-body">
-            <span class="blog-cat">Prehrana</span>
-            <h3>Tri navike koje mijenjaju sve, a nisu dijeta</h3>
-            <p>Primjer teksta, zamijeni stvarnim sadržajem kad objaviš prvi blog.</p>
-          </div>
-        </article>
-        <article class="blog-card">
-          <div class="blog-thumb">Naslovna slika posta</div>
-          <div class="blog-body">
-            <span class="blog-cat">Higijena</span>
-            <h3>Treniranje nije hobi, nego higijena</h3>
-            <p>Primjer teksta, zamijeni stvarnim sadržajem kad objaviš prvi blog.</p>
-          </div>
-        </article>
+      <div class="blog-grid" id="blogGrid">
+        <!-- Postovi se generiraju automatski iz content/blog.json -->
       </div>
     </div>
   </section>
@@ -950,11 +940,11 @@
         <div class="eyebrow">Kontakt</div>
         <h2 style="text-transform:uppercase; font-size:2rem; margin-bottom:20px;">Krenimo</h2>
         <p>Ispuni formu i javljam se u roku 24-48h. Ili me kontaktiraj direktno:</p>
-        <a class="contact-channel" href="mailto:mariostankoviccoaching@gmail.com">
+        <a class="contact-channel" id="contactEmail" href="mailto:mariostankoviccoaching@gmail.com">
           <span>Email</span>
           mariostankoviccoaching@gmail.com
         </a>
-        <a class="contact-channel" href="https://www.instagram.com/mariostankovicc/" target="_blank" rel="noopener">
+        <a class="contact-channel" id="contactInstagram" href="https://www.instagram.com/mariostankovicc/" target="_blank" rel="noopener">
           <span>Instagram</span>
           @mariostankovicc
         </a>
@@ -1006,6 +996,14 @@
       <a href="#o-meni">O meni</a>
       <a href="#usluge">Usluge</a>
       <a href="#kontakt">Kontakt</a>
+    </div>
+    <div class="footer-socials" id="footerSocials">
+      <a href="https://www.instagram.com/mariostankovicc/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@stankovicmario3.0" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 2h-3v14.2a2.8 2.8 0 1 1-2-2.68V10.4a5.8 5.8 0 1 0 5 5.75V8.9a7.4 7.4 0 0 0 4.5 1.5V7.4A4.4 4.4 0 0 1 16.5 3V2z"/></svg>
+      </a>
     </div>
   </div>
 </footer>
@@ -1084,10 +1082,23 @@
     })
     .catch(() => {});
 
-  // Load hero image, about title/text, and about carousel from content/settings.json
+  // Load hero image, about title/text, about carousel, usluge, and kontakt from content/settings.json
   fetch('content/settings.json')
     .then(r => r.json())
     .then(data => {
+      const heroTitle = document.getElementById('heroTitle');
+      if(heroTitle && data.hero_title){
+        heroTitle.textContent = data.hero_title;
+      }
+      const heroSubline = document.getElementById('heroSubline');
+      if(heroSubline && data.hero_subline){
+        heroSubline.textContent = data.hero_subline;
+      }
+      const heroLead = document.getElementById('heroLead');
+      if(heroLead && data.hero_lead){
+        heroLead.textContent = data.hero_lead;
+      }
+
       const heroImage = document.getElementById('heroImage');
       if(heroImage && data.hero_image){
         heroImage.src = data.hero_image;
@@ -1115,9 +1126,60 @@
         `).join('');
       }
 
+      const onlineDesc = document.getElementById('onlineDesc');
+      if(onlineDesc && data.online_desc){ onlineDesc.textContent = data.online_desc; }
+      const onlineFeatures = document.getElementById('onlineFeatures');
+      if(onlineFeatures && data.online_features && data.online_features.length){
+        onlineFeatures.innerHTML = data.online_features.map(f => `<li>${f.text}</li>`).join('');
+      }
+      const uzivoDesc = document.getElementById('uzivoDesc');
+      if(uzivoDesc && data.uzivo_desc){ uzivoDesc.textContent = data.uzivo_desc; }
+      const uzivoFeatures = document.getElementById('uzivoFeatures');
+      if(uzivoFeatures && data.uzivo_features && data.uzivo_features.length){
+        uzivoFeatures.innerHTML = data.uzivo_features.map(f => `<li>${f.text}</li>`).join('');
+      }
+
+      const contactEmail = document.getElementById('contactEmail');
+      if(contactEmail && data.contact_email){
+        contactEmail.href = 'mailto:' + data.contact_email;
+        contactEmail.innerHTML = '<span>Email</span>' + data.contact_email;
+      }
+      const contactInstagram = document.getElementById('contactInstagram');
+      if(contactInstagram && data.instagram_url){
+        contactInstagram.href = data.instagram_url;
+      }
+      const footerSocials = document.getElementById('footerSocials');
+      if(footerSocials){
+        const igLink = footerSocials.querySelector('a[aria-label="Instagram"]');
+        const ttLink = footerSocials.querySelector('a[aria-label="TikTok"]');
+        if(igLink && data.instagram_url) igLink.href = data.instagram_url;
+        if(ttLink && data.tiktok_url) ttLink.href = data.tiktok_url;
+      }
+
       initCarousel();
     })
     .catch(() => { initCarousel(); });
+
+  // Load blog posts from content/blog.json
+  fetch('content/blog.json')
+    .then(r => r.json())
+    .then(data => {
+      const grid = document.getElementById('blogGrid');
+      if(!grid || !data.posts) return;
+      grid.innerHTML = data.posts.map(post => `
+        <a class="blog-card" href="post.html?slug=${encodeURIComponent(post.slug)}">
+          <div class="blog-thumb" ${post.cover_image ? `style="background-image:url('${post.cover_image}'); background-size:cover; background-position:center;"` : ''}>
+            ${!post.cover_image ? 'Naslovna slika posta' : ''}
+          </div>
+          <div class="blog-body">
+            <span class="blog-cat">${post.category || ''}</span>
+            <h3>${post.title}</h3>
+            <p>${post.excerpt || ''}</p>
+          </div>
+        </a>
+      `).join('');
+    })
+    .catch(() => {});
 
   // About carousel logic
   function initCarousel(){

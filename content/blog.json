@@ -1,0 +1,28 @@
+{
+  "posts": [
+    {
+      "slug": "zasto-idealan-plan-nikad-nece-raditi",
+      "title": "Zašto ti \"idealan\" plan nikad neće raditi",
+      "category": "Trening",
+      "cover_image": "",
+      "excerpt": "Primjer teksta, zamijeni stvarnim sadržajem kad objaviš prvi blog.",
+      "body": "Primjer teksta, zamijeni stvarnim sadržajem kad objaviš prvi blog."
+    },
+    {
+      "slug": "tri-navike-koje-mijenjaju-sve",
+      "title": "Tri navike koje mijenjaju sve, a nisu dijeta",
+      "category": "Prehrana",
+      "cover_image": "",
+      "excerpt": "Primjer teksta, zamijeni stvarnim sadržajem kad objaviš prvi blog.",
+      "body": "Primjer teksta, zamijeni stvarnim sadržajem kad objaviš prvi blog."
+    },
+    {
+      "slug": "treniranje-nije-hobi-nego-higijena",
+      "title": "Treniranje nije hobi, nego higijena",
+      "category": "Higijena",
+      "cover_image": "",
+      "excerpt": "Primjer teksta, zamijeni stvarnim sadržajem kad objaviš prvi blog.",
+      "body": "Primjer teksta, zamijeni stvarnim sadržajem kad objaviš prvi blog."
+    }
+  ]
+}

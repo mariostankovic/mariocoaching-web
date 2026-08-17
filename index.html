@@ -240,15 +240,14 @@
   .hero-portrait{
     aspect-ratio:4/5;
     background:linear-gradient(160deg, var(--panel-2), var(--void));
-    border:1px dashed var(--line);
     border-radius:4px;
+    overflow:hidden;
     display:flex;
     align-items:center;
     justify-content:center;
     text-align:center;
     color:var(--ice-dim);
     font-size:0.9rem;
-    padding:24px;
     position:relative;
   }
   .hero-portrait::after{
@@ -443,14 +442,22 @@
     border-top:1px solid var(--line);
     border-bottom:1px solid var(--line);
   }
-  .compare-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:24px;
+  .compare-scroller{
+    position:relative;
     margin-bottom:60px;
   }
+  .compare-grid{
+    display:flex;
+    gap:24px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    padding-bottom:4px;
+    scrollbar-width:none;
+  }
+  .compare-grid::-webkit-scrollbar{display:none;}
   .compare{
     position:relative;
+    flex:0 0 clamp(240px, 70vw, 340px);
     aspect-ratio:3/4;
     border-radius:4px;
     overflow:hidden;
@@ -458,9 +465,30 @@
     background:var(--void);
     cursor:ew-resize;
     user-select:none;
+    scroll-snap-align:start;
   }
-  @media (max-width:760px){
-    .compare-grid{grid-template-columns:1fr;}
+  .scroller-arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:44px; height:44px;
+    border-radius:50%;
+    border:1px solid var(--line);
+    background:rgba(10,12,16,0.85);
+    color:var(--paper);
+    font-size:1.3rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    z-index:5;
+    transition:border-color 0.15s ease;
+  }
+  .scroller-arrow:hover{border-color:var(--blue);}
+  .scroller-arrow.prev{left:-16px;}
+  .scroller-arrow.next{right:-16px;}
+  @media (max-width:600px){
+    .scroller-arrow{display:none;}
   }
   .compare-before, .compare-after{
     position:absolute;
@@ -525,16 +553,25 @@
     margin-bottom:60px;
   }
 
-  .testimonials{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:24px;
+  .testimonials-scroller{
+    position:relative;
   }
+  .testimonials{
+    display:flex;
+    gap:24px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    padding-bottom:4px;
+    scrollbar-width:none;
+  }
+  .testimonials::-webkit-scrollbar{display:none;}
   .testimonial{
     background:var(--void);
     border:1px solid var(--line);
     border-radius:4px;
     padding:28px 24px;
+    flex:0 0 clamp(240px, 80vw, 320px);
+    scroll-snap-align:start;
   }
   .testimonial p{
     color:var(--ice);
@@ -547,9 +584,6 @@
     color:var(--blue);
     text-transform:uppercase;
     letter-spacing:0.06em;
-  }
-  @media (max-width:860px){
-    .testimonials{grid-template-columns:1fr;}
   }
 
   /* ---------- KAKO RADIMO ---------- */
@@ -667,6 +701,21 @@
     letter-spacing:0.08em;
     margin-bottom:4px;
   }
+  .contact-socials{
+    display:flex;
+    gap:16px;
+  }
+  .contact-socials a{
+    color:var(--ice);
+    display:flex;
+    width:40px; height:40px;
+    align-items:center;
+    justify-content:center;
+    border:1px solid var(--line);
+    border-radius:50%;
+    transition:border-color 0.15s ease, color 0.15s ease;
+  }
+  .contact-socials a:hover{border-color:var(--blue); color:var(--blue);}
 
   form{
     display:flex;
@@ -710,6 +759,24 @@
     font-size:0.8rem;
     color:var(--ice-dim);
     margin-top:-6px;
+  }
+  .thank-you{
+    margin-top:32px;
+    padding:40px 28px;
+    text-align:center;
+    border:1px solid var(--line);
+    border-radius:4px;
+    background:linear-gradient(160deg, var(--blue-deep), var(--panel));
+  }
+  .thank-you h2{
+    font-size:1.5rem;
+    text-transform:uppercase;
+    margin-bottom:10px;
+    font-family:var(--display);
+  }
+  .thank-you p{
+    color:var(--ice);
+    font-size:0.98rem;
   }
   @media (max-width:860px){
     .contact-grid{grid-template-columns:1fr;}
@@ -764,7 +831,6 @@
       <li><a href="#o-meni">O meni</a></li>
       <li><a href="#usluge">Usluge</a></li>
       <li><a href="#transformacije">Transformacije</a></li>
-      <li><a href="#blog">Blog</a></li>
       <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
     </ul>
     <button class="burger" id="burgerBtn" aria-label="Otvori izbornik">☰</button>
@@ -781,7 +847,7 @@
         <p class="hero-subline" id="heroSubline">Bez dijeta i planova koje ne izdržiš dulje od tjedan dana.</p>
         <p class="lead" id="heroLead">Tu sam da to ostvarimo zajedno, korak po korak, uz plan i podršku na koju se stvarno možeš osloniti.</p>
         <div class="hero-actions">
-          <a href="#kontakt" class="btn btn-primary">Zakaži poziv</a>
+          <a href="prijava.html" class="btn btn-primary">Zakaži poziv</a>
           <a href="#usluge" class="btn btn-ghost">Pogledaj usluge</a>
         </div>
         <div class="stat-row">
@@ -850,7 +916,7 @@
             <li>Praćenje napretka kroz aplikaciju</li>
             <li>Tjedne korekcije na temelju tvojih rezultata</li>
           </ul>
-          <a href="#kontakt" class="btn btn-primary">Zatraži ponudu</a>
+          <a href="prijava.html" class="btn btn-primary">Zatraži ponudu</a>
         </div>
         <div class="service-card">
           <span class="service-tag">Osobni trening</span>
@@ -862,7 +928,7 @@
             <li>Praćenje napretka</li>
             <li>Lokacija: Moja privatna teretana Fit Arena Dubrava</li>
           </ul>
-          <a href="#kontakt" class="btn btn-ghost">Zatraži ponudu</a>
+          <a href="prijava.html" class="btn btn-ghost">Zatraži ponudu</a>
         </div>
       </div>
     </div>
@@ -876,12 +942,20 @@
         <h2>Ljudi koji su odlučili poduzeti prvi korak</h2>
       </div>
 
-      <div class="compare-grid" id="compareGrid">
-        <!-- Sliderovi za prije/poslije se generiraju automatski iz content/transformations.json -->
+      <div class="compare-scroller">
+        <button class="scroller-arrow prev" id="compareScrollPrev" aria-label="Prethodna transformacija">‹</button>
+        <div class="compare-grid" id="compareGrid">
+          <!-- Sliderovi za prije/poslije se generiraju automatski iz content/transformations.json -->
+        </div>
+        <button class="scroller-arrow next" id="compareScrollNext" aria-label="Sljedeća transformacija">›</button>
       </div>
 
-      <div class="testimonials" id="testimonialsGrid">
-        <!-- Recenzije se generiraju automatski iz content/testimonials.json -->
+      <div class="testimonials-scroller">
+        <button class="scroller-arrow prev" id="testimonialsScrollPrev" aria-label="Prethodna recenzija">‹</button>
+        <div class="testimonials" id="testimonialsGrid">
+          <!-- Recenzije se generiraju automatski iz content/testimonials.json -->
+        </div>
+        <button class="scroller-arrow next" id="testimonialsScrollNext" aria-label="Sljedeća recenzija">›</button>
       </div>
     </div>
   </section>
@@ -897,7 +971,7 @@
         <div class="process-item">
           <span class="process-num">01</span>
           <h3>Prijava</h3>
-          <p>Javiš se putem prijavnice ili poruke i kratko mi opišeš cilj i trenutnu situaciju.</p>
+          <p>Javiš se putem prijavnice ili poruke na Instagramu.</p>
           <a href="prijava.html" class="btn btn-primary btn-sm" style="margin-top:12px;">Otvori prijavnicu →</a>
         </div>
         <div class="process-item">
@@ -919,19 +993,7 @@
     </div>
   </section>
 
-  <!-- BLOG -->
-  <section class="blog" id="blog">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow">Blog</div>
-        <h2>Zadnji tekstovi</h2>
-        <p>Ovdje objavljujem tekstove o treningu, prehrani i mentalnoj higijeni.</p>
-      </div>
-      <div class="blog-grid" id="blogGrid">
-        <!-- Postovi se generiraju automatski iz content/blog.json -->
-      </div>
-    </div>
-  </section>
+  <!-- BLOG (privremeno maknuto s prikaza, sadrzaj i admin ostaju spremni za kasnije) -->
 
   <!-- KONTAKT -->
   <section id="kontakt">
@@ -948,6 +1010,19 @@
           <span>Instagram</span>
           @mariostankovicc
         </a>
+
+        <p style="margin-top:32px; margin-bottom:14px;">Zaprati me na</p>
+        <div class="contact-socials">
+          <a href="https://www.instagram.com/mariostankovicc/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@stankovicmario3.0" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 2h-3v14.2a2.8 2.8 0 1 1-2-2.68V10.4a5.8 5.8 0 1 0 5 5.75V8.9a7.4 7.4 0 0 0 4.5 1.5V7.4A4.4 4.4 0 0 1 16.5 3V2z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61580477729549" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5h2.5l.5-3h-3V8.5c0-.9.25-1.5 1.6-1.5H16.5V4.3C16.2 4.26 15.2 4.17 14 4.17c-2.4 0-4 1.46-4 4.14V10.5H7.5v3H10V21h3.5z"/></svg>
+          </a>
+        </div>
       </div>
 
       <form name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field">
@@ -982,8 +1057,12 @@
         </div>
 
         <button type="submit" class="btn btn-primary submit-btn">Pošalji upit</button>
-        <p class="form-note">Poruka stiže direktno na tvoj email putem Netlify Forms, nema potrebe za dodatnom aplikacijom.</p>
       </form>
+
+      <div id="kontaktThankYou" class="thank-you" hidden>
+        <h2>Hvala na upitu</h2>
+        <p>Javljam ti se u najkraćem mogućem vremenu.</p>
+      </div>
     </div>
   </section>
 
@@ -1010,6 +1089,29 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Kontakt form AJAX submission with thank-you message
+  const kontaktForm = document.querySelector('form[name="kontakt"]');
+  const kontaktThankYou = document.getElementById('kontaktThankYou');
+  if(kontaktForm){
+    kontaktForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      const data = new FormData(kontaktForm);
+      fetch('/', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: new URLSearchParams(data).toString()
+      })
+      .then(() => {
+        kontaktForm.hidden = true;
+        kontaktThankYou.hidden = false;
+        kontaktThankYou.scrollIntoView({behavior:'smooth'});
+      })
+      .catch(() => {
+        kontaktForm.submit();
+      });
+    });
+  }
 
   // Mobile nav toggle
   const burger = document.getElementById('burgerBtn');
@@ -1159,6 +1261,22 @@
       initCarousel();
     })
     .catch(() => { initCarousel(); });
+
+  // Scroll arrows for transformations and testimonials rows
+  function wireScroller(gridId, prevId, nextId){
+    const grid = document.getElementById(gridId);
+    const prev = document.getElementById(prevId);
+    const next = document.getElementById(nextId);
+    if(!grid || !prev || !next) return;
+    function scrollAmount(){
+      const card = grid.firstElementChild;
+      return card ? card.getBoundingClientRect().width + 24 : 300;
+    }
+    prev.addEventListener('click', () => grid.scrollBy({left: -scrollAmount(), behavior:'smooth'}));
+    next.addEventListener('click', () => grid.scrollBy({left: scrollAmount(), behavior:'smooth'}));
+  }
+  wireScroller('compareGrid', 'compareScrollPrev', 'compareScrollNext');
+  wireScroller('testimonialsGrid', 'testimonialsScrollPrev', 'testimonialsScrollNext');
 
   // Load blog posts from content/blog.json
   fetch('content/blog.json')

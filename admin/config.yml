@@ -41,9 +41,12 @@ collections:
     label: "Postavke stranice"
     files:
       - name: "settings"
-        label: "Naslovna fotografija i O meni"
+        label: "Hero, O meni, Usluge, Kontakt"
         file: "content/settings.json"
         fields:
+          - {name: "hero_title", label: "Hero naslov (pitanje)", widget: "string"}
+          - {name: "hero_subline", label: "Hero manja recenica ispod naslova", widget: "string"}
+          - {name: "hero_lead", label: "Hero recenica ispod toga", widget: "text"}
           - {name: "hero_image", label: "Naslovna fotografija (hero)", widget: "image"}
           - {name: "about_title", label: "O meni naslov", widget: "string"}
           - {name: "about_text", label: "O meni tekst (prazan red = novi paragraf)", widget: "text"}
@@ -54,3 +57,40 @@ collections:
             fields:
               - {name: "image", label: "Fotografija", widget: "image", required: false}
               - {name: "label", label: "Opis (interno)", widget: "string", required: false}
+          - {name: "online_desc", label: "Online Coaching opis", widget: "text"}
+          - name: "online_features"
+            label: "Online Coaching bulletpointsi"
+            widget: "list"
+            label_singular: "Stavka"
+            fields:
+              - {name: "text", label: "Tekst", widget: "string"}
+          - {name: "uzivo_desc", label: "Trening Uzivo opis", widget: "text"}
+          - name: "uzivo_features"
+            label: "Trening Uzivo bulletpointsi"
+            widget: "list"
+            label_singular: "Stavka"
+            fields:
+              - {name: "text", label: "Tekst", widget: "string"}
+          - {name: "contact_email", label: "Email", widget: "string"}
+          - {name: "instagram_url", label: "Instagram link", widget: "string"}
+          - {name: "tiktok_url", label: "TikTok link", widget: "string"}
+
+  - name: "blog"
+    label: "Blog"
+    files:
+      - name: "blog"
+        label: "Blog postovi"
+        file: "content/blog.json"
+        fields:
+          - name: "posts"
+            label: "Postovi"
+            widget: "list"
+            label_singular: "Post"
+            summary: "{{title}}"
+            fields:
+              - {name: "title", label: "Naslov", widget: "string"}
+              - {name: "slug", label: "URL oznaka (samo malim slovima, bez razmaka, npr. moj-prvi-post)", widget: "string"}
+              - {name: "category", label: "Kategorija (npr. Trening, Prehrana, Higijena)", widget: "string"}
+              - {name: "cover_image", label: "Naslovna fotografija", widget: "image", required: false}
+              - {name: "excerpt", label: "Kratki opis (prikazuje se u pregledu)", widget: "text"}
+              - {name: "body", label: "Cijeli tekst posta (prazan red = novi paragraf)", widget: "text"}

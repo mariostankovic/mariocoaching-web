@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hvala — mariocoaching</title>
+<meta name="description" content="Hvala na upitu. Javljam se u najkraćem mogućem vremenu.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --void:#0A0C10;
+    --panel:#11151D;
+    --line:#232A38;
+    --blue:#3D7FFF;
+    --blue-deep:#16233D;
+    --paper:#F2F4F8;
+    --ice:#A9B4C7;
+    --display: 'Oswald', sans-serif;
+    --body: 'Inter', sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{overflow-x:hidden; width:100%;}
+  body{
+    background:var(--void);
+    color:var(--paper);
+    font-family:var(--body);
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    text-align:center;
+  }
+  .card{
+    max-width:480px;
+    padding:56px 36px;
+    border:1px solid var(--line);
+    border-radius:6px;
+    background:linear-gradient(160deg, var(--blue-deep), var(--panel));
+  }
+  .logo{
+    font-family:var(--display);
+    font-size:1.1rem;
+    font-weight:700;
+    color:var(--ice);
+    margin-bottom:32px;
+  }
+  .logo span{color:var(--blue);}
+  h1{
+    font-family:var(--display);
+    font-size:1.9rem;
+    text-transform:uppercase;
+    margin-bottom:16px;
+  }
+  p{
+    color:var(--ice);
+    font-size:1.02rem;
+    margin-bottom:32px;
+  }
+  a.btn{
+    display:inline-block;
+    padding:14px 28px;
+    font-size:0.92rem;
+    font-weight:600;
+    border-radius:2px;
+    background:var(--blue);
+    color:var(--paper);
+    text-decoration:none;
+  }
+  a.btn:hover{background:#2f6ae0;}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">MARIOCOACHING</div>
+    <h1>Hvala na upitu</h1>
+    <p>Javljam ti se u najkraćem mogućem vremenu.</p>
+    <a href="index.html" class="btn">Natrag na početnu</a>
+  </div>
+</body>
+</html>

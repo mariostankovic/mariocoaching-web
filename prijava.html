@@ -241,7 +241,7 @@
 
 <header>
   <nav>
-    <a class="logo" href="index.html">MARIOCOACHING<span>.</span></a>
+    <a class="logo" href="index.html">MARIOCOACHING</a>
     <a class="back-link" href="index.html">← Natrag na početnu</a>
   </nav>
 </header>
@@ -254,7 +254,7 @@
       <p>Što detaljnije popuniš prijavnicu, to ću ti brže i preciznije moći odgovoriti kad se javim. Javljam se u roku 24-48h.</p>
     </div>
 
-    <form name="prijava" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <form name="prijava" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="hvala.html">
       <input type="hidden" name="form-name" value="prijava">
       <p style="display:none;">
         <label>Ne popunjavaj ovo polje: <input name="bot-field"></label>
@@ -358,37 +358,8 @@
 
       <button type="submit" class="btn">Pošalji prijavnicu</button>
     </form>
-
-    <div id="thankYou" class="thank-you" hidden>
-      <h2>Hvala na upitu</h2>
-      <p>Javljam ti se u najkraćem mogućem vremenu.</p>
-    </div>
   </div>
 </main>
-
-<script>
-  const form = document.querySelector('form[name="prijava"]');
-  const thankYou = document.getElementById('thankYou');
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    const data = new FormData(form);
-    fetch('/', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-      body: new URLSearchParams(data).toString()
-    })
-    .then(() => {
-      form.hidden = true;
-      thankYou.hidden = false;
-      thankYou.scrollIntoView({behavior:'smooth'});
-    })
-    .catch(() => {
-      // Fallback: let the browser submit normally if the AJAX call fails
-      form.submit();
-    });
-  });
-</script>
 
 </body>
 </html>

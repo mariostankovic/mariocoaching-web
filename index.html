@@ -35,7 +35,7 @@
 
   *{margin:0;padding:0;box-sizing:border-box;}
 
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth; overflow-x:hidden; width:100%;}
 
   body{
     background:var(--void);
@@ -279,6 +279,16 @@
     margin-top:16px;
     font-size:1.02rem;
   }
+  @media (max-width:760px){
+    .section-head{
+      margin-left:auto;
+      margin-right:auto;
+      text-align:center;
+    }
+    .section-head .eyebrow{
+      justify-content:center;
+    }
+  }
 
   /* ---------- O MENI ---------- */
   .about{
@@ -377,6 +387,10 @@
   @media (max-width:860px){
     .about-grid{grid-template-columns:1fr;}
   }
+  @media (max-width:760px){
+    .about-text{text-align:center;}
+    .about-text .eyebrow{justify-content:center;}
+  }
 
   /* ---------- USLUGE ---------- */
   .services-grid{
@@ -442,6 +456,10 @@
     border-top:1px solid var(--line);
     border-bottom:1px solid var(--line);
   }
+  .kontakt-section{
+    background:var(--panel);
+    border-top:1px solid var(--line);
+  }
   .compare-scroller{
     position:relative;
     margin-bottom:60px;
@@ -455,7 +473,7 @@
     scrollbar-width:none;
   }
   .compare-grid::-webkit-scrollbar{display:none;}
-  .compare{
+  .transformation-card{
     position:relative;
     flex:0 0 clamp(240px, 70vw, 340px);
     aspect-ratio:3/4;
@@ -463,15 +481,31 @@
     overflow:hidden;
     border:1px solid var(--line);
     background:var(--void);
-    cursor:ew-resize;
-    user-select:none;
     scroll-snap-align:start;
+  }
+  .transformation-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .transformation-placeholder{
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--ice-dim);
+    font-size:0.85rem;
+    text-align:center;
+    padding:20px;
+    background:linear-gradient(160deg, var(--panel-2), var(--void));
   }
   .scroller-arrow{
     position:absolute;
     top:50%;
     transform:translateY(-50%);
-    width:44px; height:44px;
+    width:40px; height:40px;
     border-radius:50%;
     border:1px solid var(--line);
     background:rgba(10,12,16,0.85);
@@ -485,73 +519,31 @@
     transition:border-color 0.15s ease;
   }
   .scroller-arrow:hover{border-color:var(--blue);}
-  .scroller-arrow.prev{left:-16px;}
-  .scroller-arrow.next{right:-16px;}
+  .scroller-arrow.prev{left:2px;}
+  .scroller-arrow.next{right:2px;}
   @media (max-width:600px){
     .scroller-arrow{display:none;}
   }
-  .compare-before, .compare-after{
-    position:absolute;
-    inset:0;
+  .scroller-arrows-below{
     display:flex;
-    align-items:center;
     justify-content:center;
-    flex-direction:column;
-    gap:6px;
-    color:var(--ice-dim);
-    font-family:var(--mono);
-    font-size:0.85rem;
-    text-align:center;
-    padding:20px;
+    gap:16px;
+    margin-top:20px;
   }
-  .compare-before{background:linear-gradient(160deg, var(--panel-2), var(--void));}
-  .compare-after{
-    background:linear-gradient(160deg, var(--blue-deep), #0d1420);
-    clip-path:inset(0 0 0 50%);
-  }
-  .compare-handle{
-    position:absolute;
-    top:0; bottom:0;
-    left:50%;
-    width:2px;
-    background:var(--blue);
-    transform:translateX(-1px);
-    pointer-events:none;
-  }
-  .compare-handle::after{
-    content:'↔';
-    position:absolute;
-    top:50%; left:50%;
-    transform:translate(-50%,-50%);
-    width:40px; height:40px;
-    background:var(--blue);
-    color:var(--paper);
+  .scroller-arrow-below{
+    width:44px; height:44px;
     border-radius:50%;
+    border:1px solid var(--line);
+    background:var(--void);
+    color:var(--paper);
+    font-size:1.3rem;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:1.1rem;
+    cursor:pointer;
+    transition:border-color 0.15s ease;
   }
-  .compare-label{
-    position:absolute;
-    top:16px;
-    font-family:var(--mono);
-    font-size:0.72rem;
-    text-transform:uppercase;
-    letter-spacing:0.1em;
-    background:rgba(10,12,16,0.7);
-    padding:5px 10px;
-    border-radius:2px;
-  }
-  .label-before{left:16px; color:var(--ice);}
-  .label-after{right:16px; color:var(--blue);}
-  .compare-note{
-    text-align:center;
-    color:var(--ice-dim);
-    font-size:0.85rem;
-    margin-top:-40px;
-    margin-bottom:60px;
-  }
+  .scroller-arrow-below:hover{border-color:var(--blue);}
 
   .testimonials-scroller{
     position:relative;
@@ -704,6 +696,7 @@
   .contact-socials{
     display:flex;
     gap:16px;
+    justify-content:center;
   }
   .contact-socials a{
     color:var(--ice);
@@ -782,6 +775,11 @@
     .contact-grid{grid-template-columns:1fr;}
     .form-row{grid-template-columns:1fr;}
   }
+  @media (max-width:760px){
+    .contact-info{text-align:center;}
+    .contact-info .eyebrow{justify-content:center;}
+    .contact-socials{justify-content:center;}
+  }
 
   /* ---------- FOOTER ---------- */
   footer{
@@ -826,12 +824,12 @@
 
 <header>
   <nav>
-    <div class="logo">MARIOCOACHING<span>.</span></div>
+    <div class="logo">MARIOCOACHING</div>
     <ul class="nav-links" id="navLinks">
       <li><a href="#o-meni">O meni</a></li>
       <li><a href="#usluge">Usluge</a></li>
       <li><a href="#transformacije">Transformacije</a></li>
-      <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
+      <li><a href="prijava.html" class="nav-cta">Prijavi se</a></li>
     </ul>
     <button class="burger" id="burgerBtn" aria-label="Otvori izbornik">☰</button>
   </nav>
@@ -900,8 +898,8 @@
   <!-- USLUGE -->
   <section id="usluge">
     <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow">Usluge</div>
+      <div class="section-head" style="text-align:center; margin-left:auto; margin-right:auto;">
+        <div class="eyebrow" style="justify-content:center;">Usluge</div>
         <h2>Odaberi format koji ti odgovara</h2>
         <p>Oba pristupa vode istom cilju.</p>
       </div>
@@ -928,7 +926,7 @@
             <li>Praćenje napretka</li>
             <li>Lokacija: Moja privatna teretana Fit Arena Dubrava</li>
           </ul>
-          <a href="prijava.html" class="btn btn-ghost">Zatraži ponudu</a>
+          <a href="prijava.html" class="btn btn-primary">Zatraži ponudu</a>
         </div>
       </div>
     </div>
@@ -937,17 +935,19 @@
   <!-- TRANSFORMACIJE -->
   <section class="transformations" id="transformacije">
     <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow">Transformacije</div>
+      <div class="section-head" style="text-align:center; margin-left:auto; margin-right:auto;">
+        <div class="eyebrow" style="justify-content:center;">Transformacije</div>
         <h2>Ljudi koji su odlučili poduzeti prvi korak</h2>
       </div>
 
       <div class="compare-scroller">
-        <button class="scroller-arrow prev" id="compareScrollPrev" aria-label="Prethodna transformacija">‹</button>
         <div class="compare-grid" id="compareGrid">
           <!-- Sliderovi za prije/poslije se generiraju automatski iz content/transformations.json -->
         </div>
-        <button class="scroller-arrow next" id="compareScrollNext" aria-label="Sljedeća transformacija">›</button>
+        <div class="scroller-arrows-below">
+          <button class="scroller-arrow-below" id="compareScrollPrev" aria-label="Prethodna transformacija">‹</button>
+          <button class="scroller-arrow-below" id="compareScrollNext" aria-label="Sljedeća transformacija">›</button>
+        </div>
       </div>
 
       <div class="testimonials-scroller">
@@ -961,10 +961,10 @@
   </section>
 
   <!-- KAKO RADIMO -->
-  <section>
+  <section id="proces">
     <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow">Proces</div>
+      <div class="section-head" style="text-align:center; margin-left:auto; margin-right:auto;">
+        <div class="eyebrow" style="justify-content:center;">Proces</div>
         <h2>Kako izgleda suradnja</h2>
       </div>
       <div class="process-list">
@@ -996,10 +996,10 @@
   <!-- BLOG (privremeno maknuto s prikaza, sadrzaj i admin ostaju spremni za kasnije) -->
 
   <!-- KONTAKT -->
-  <section id="kontakt">
+  <section id="kontakt" class="kontakt-section">
     <div class="wrap contact-grid">
-      <div class="contact-info">
-        <div class="eyebrow">Kontakt</div>
+      <div class="contact-info" style="text-align:center;">
+        <div class="eyebrow" style="justify-content:center;">Kontakt</div>
         <h2 style="text-transform:uppercase; font-size:2rem; margin-bottom:20px;">Krenimo</h2>
         <p>Ispuni formu i javljam se u roku 24-48h. Ili me kontaktiraj direktno:</p>
         <a class="contact-channel" id="contactEmail" href="mailto:mariostankoviccoaching@gmail.com">
@@ -1011,7 +1011,7 @@
           @mariostankovicc
         </a>
 
-        <p style="margin-top:32px; margin-bottom:14px;">Zaprati me na</p>
+        <p style="margin-top:32px; margin-bottom:14px;">Zaprati me na:</p>
         <div class="contact-socials">
           <a href="https://www.instagram.com/mariostankovicc/" target="_blank" rel="noopener" aria-label="Instagram">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
@@ -1025,7 +1025,7 @@
         </div>
       </div>
 
-      <form name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <form name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="hvala.html">
         <input type="hidden" name="form-name" value="kontakt">
         <p style="display:none;">
           <label>Ne popunjavaj ovo polje: <input name="bot-field"></label>
@@ -1058,11 +1058,6 @@
 
         <button type="submit" class="btn btn-primary submit-btn">Pošalji upit</button>
       </form>
-
-      <div id="kontaktThankYou" class="thank-you" hidden>
-        <h2>Hvala na upitu</h2>
-        <p>Javljam ti se u najkraćem mogućem vremenu.</p>
-      </div>
     </div>
   </section>
 
@@ -1070,12 +1065,6 @@
 
 <footer>
   <div class="wrap footer-row">
-    <p>© <span id="year"></span> Mario. Sva prava pridržana.</p>
-    <div class="footer-links">
-      <a href="#o-meni">O meni</a>
-      <a href="#usluge">Usluge</a>
-      <a href="#kontakt">Kontakt</a>
-    </div>
     <div class="footer-socials" id="footerSocials">
       <a href="https://www.instagram.com/mariostankovicc/" target="_blank" rel="noopener" aria-label="Instagram">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
@@ -1084,35 +1073,16 @@
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 2h-3v14.2a2.8 2.8 0 1 1-2-2.68V10.4a5.8 5.8 0 1 0 5 5.75V8.9a7.4 7.4 0 0 0 4.5 1.5V7.4A4.4 4.4 0 0 1 16.5 3V2z"/></svg>
       </a>
     </div>
+    <div class="footer-links">
+      <a href="#o-meni">O meni</a>
+      <a href="#usluge">Usluge</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+    <p>© 2025 MarioStankovicCoaching</p>
   </div>
 </footer>
 
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Kontakt form AJAX submission with thank-you message
-  const kontaktForm = document.querySelector('form[name="kontakt"]');
-  const kontaktThankYou = document.getElementById('kontaktThankYou');
-  if(kontaktForm){
-    kontaktForm.addEventListener('submit', function(e){
-      e.preventDefault();
-      const data = new FormData(kontaktForm);
-      fetch('/', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        body: new URLSearchParams(data).toString()
-      })
-      .then(() => {
-        kontaktForm.hidden = true;
-        kontaktThankYou.hidden = false;
-        kontaktThankYou.scrollIntoView({behavior:'smooth'});
-      })
-      .catch(() => {
-        kontaktForm.submit();
-      });
-    });
-  }
-
   // Mobile nav toggle
   const burger = document.getElementById('burgerBtn');
   const navLinks = document.getElementById('navLinks');
@@ -1123,49 +1093,20 @@
     link.addEventListener('click', () => navLinks.classList.remove('open'));
   });
 
-  // Before/after compare slider logic (works for any number of .compare elements)
-  function initCompareSlider(compare){
-    const after = compare.querySelector('[data-compare-after]');
-    const handle = compare.querySelector('[data-compare-handle]');
-    let dragging = false;
-
-    function setPosition(clientX){
-      const rect = compare.getBoundingClientRect();
-      let pct = ((clientX - rect.left) / rect.width) * 100;
-      pct = Math.max(0, Math.min(100, pct));
-      after.style.clipPath = `inset(0 0 0 ${pct}%)`;
-      handle.style.left = pct + '%';
-    }
-
-    compare.addEventListener('mousedown', (e) => { dragging = true; setPosition(e.clientX); });
-    window.addEventListener('mousemove', (e) => { if(dragging) setPosition(e.clientX); });
-    window.addEventListener('mouseup', () => dragging = false);
-
-    compare.addEventListener('touchstart', (e) => { dragging = true; setPosition(e.touches[0].clientX); });
-    compare.addEventListener('touchmove', (e) => { if(dragging){ setPosition(e.touches[0].clientX); e.preventDefault(); } }, {passive:false});
-    window.addEventListener('touchend', () => dragging = false);
-  }
-
-  // Load transformations (prije/poslije sliders) from content/transformations.json
+  // Load transformations (single image per transformation, from Canva) from content/transformations.json
   fetch('content/transformations.json')
     .then(r => r.json())
     .then(data => {
       const grid = document.getElementById('compareGrid');
       if(!grid || !data.items) return;
       grid.innerHTML = data.items.map(item => `
-        <div class="compare" data-compare>
-          <div class="compare-before" ${item.before_image ? `style="background-image:url('${item.before_image}'); background-size:cover; background-position:center top;"` : ''}>
-            ${!item.before_image ? '<span>PRIJE</span><span>Dodaj fotografiju "prije"</span>' : ''}
-          </div>
-          <div class="compare-after" data-compare-after ${item.after_image ? `style="background-image:url('${item.after_image}'); background-size:cover; background-position:center top;"` : ''}>
-            ${!item.after_image ? '<span>POSLIJE</span><span>Dodaj fotografiju "poslije"</span>' : ''}
-          </div>
-          <div class="compare-handle" data-compare-handle></div>
-          <span class="compare-label label-before">Prije</span>
-          <span class="compare-label label-after">Poslije</span>
+        <div class="transformation-card">
+          ${item.image
+            ? `<img src="${item.image}" alt="${item.label || 'Transformacija'}" loading="lazy">`
+            : `<div class="transformation-placeholder"><span>Dodaj fotografiju</span></div>`
+          }
         </div>
       `).join('');
-      grid.querySelectorAll('[data-compare]').forEach(initCompareSlider);
     })
     .catch(() => {});
 

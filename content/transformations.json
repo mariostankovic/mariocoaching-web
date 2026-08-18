@@ -1,12 +1,21 @@
 {
   "items": [
     {
-      "image": "",
-      "label": "Transformacija 1"
+      "image": "images/uploads/klijent-5.png",
+      "label": ""
     },
     {
-      "image": "",
-      "label": "Transformacija 2"
+      "image": "images/uploads/klijent-1-jurica-mrsavljenje.png",
+      "label": ""
+    },
+    {
+      "image": "images/uploads/klijent-4.png"
+    },
+    {
+      "image": "images/uploads/klijent-2-mrsavljenje.png"
+    },
+    {
+      "image": "images/uploads/klijent-3-mrsavljenje.png"
     }
   ]
 }

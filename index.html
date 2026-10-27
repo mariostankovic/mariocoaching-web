@@ -860,10 +860,10 @@
   <nav>
     <div class="logo">MARIOCOACHING</div>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#o-meni">O meni</a></li>
-      <li><a href="#usluge">Usluge</a></li>
       <li><a href="#transformacije">Transformacije</a></li>
-      <li><a href="prijava.html" class="nav-cta">Prijavi se</a></li>
+      <li><a href="#usluge">Usluge</a></li>
+      <li><a href="#o-meni">O meni</a></li>
+      <li><a href="prijava.html" class="nav-cta">Besplatne konzultacije</a></li>
     </ul>
     <button class="burger" id="burgerBtn" aria-label="Otvori izbornik">☰</button>
   </nav>
@@ -879,7 +879,7 @@
         <p class="hero-subline" id="heroSubline">Bez dijeta i planova koje ne izdržiš dulje od tjedan dana.</p>
         <p class="lead" id="heroLead">Tu sam da to ostvarimo zajedno, korak po korak, uz plan i podršku na koju se stvarno možeš osloniti.</p>
         <div class="hero-actions">
-          <a href="prijava.html" class="btn btn-primary">Zakaži poziv</a>
+          <a href="prijava.html" class="btn btn-primary">Besplatne konzultacije</a>
           <a href="#usluge" class="btn btn-ghost">Pogledaj usluge</a>
         </div>
         <div class="stat-row">
@@ -888,8 +888,8 @@
             <div class="stat-label">Godina iskustva</div>
           </div>
           <div>
-            <div class="stat-num">1:1</div>
-            <div class="stat-label">Personalizirani pristup</div>
+            <div class="stat-num">70+</div>
+            <div class="stat-label">Zadovoljnih klijenata</div>
           </div>
           <div>
             <div class="stat-num">Online</div>
@@ -899,69 +899,6 @@
       </div>
       <div class="hero-portrait">
         <img id="heroImage" src="images/hero-portret.jpg" alt="Mario, osobni trener" style="width:100%; height:100%; object-fit:cover; border-radius:4px; position:relative; z-index:1;">
-      </div>
-    </div>
-  </section>
-
-  <!-- O MENI -->
-  <section class="about" id="o-meni">
-    <div class="wrap about-grid">
-      <div class="about-carousel" id="aboutCarousel">
-        <div class="carousel-track" id="carouselTrack">
-          <!-- Slike se generiraju automatski iz content/settings.json (about_carousel) -->
-        </div>
-        <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Prethodna slika">‹</button>
-        <button class="carousel-btn carousel-next" id="carouselNext" aria-label="Sljedeća slika">›</button>
-        <div class="carousel-dots" id="carouselDots"></div>
-      </div>
-      <div class="about-text">
-        <div class="eyebrow">O meni</div>
-        <h2 id="aboutTitle" style="text-transform:uppercase; font-size:2rem; margin-bottom:20px;">Bok, ja sam Mario</h2>
-        <div id="aboutText">
-          <p>Nisam se rodio fit, baš kao ni ti. Kao klinac sam probao razne sportove, ali nijedan me nije stvarno zadržao, sve dok sa 17 godina nisam prvi put ušao u teretanu. Nešto se tu upalilo u meni. Svidjelo mi se što je bilo teško, ali sam za trud dobivao rezultat koji sam mogao vidjeti i osjetiti.</p>
-          <p>Nisam odmah sve znao. Satima sam istraživao, čitao i isprobavao razne stvari na sebi, dok nisam naučio kako moje tijelo zapravo reagira i radi. Onda su me prijatelji počeli pitati za savjete, pa sam počeo trenirati i njih. Tada sam prvi put u životu osjetio da svojim znanjem i iskustvom stvarno nekome pomažem, i to je bio trenutak kad sam znao što želim raditi.</p>
-          <p>Završio sam Bodybuilding i fitness učilište i od tada radim s ljudima. Do sada sam surađivao s preko 70 klijenata, svaki sa svojom pričom, svojim ciljem i svojim izazovima.</p>
-          <p>Znam kako je biti nezadovoljan svojim tijelom. Znam kako je misliti da se taj višak na trbuhu nikad neće maknuti, ili da mišići jednostavno neće rasti koliko god se trudio. Znam i kako je nakon ozljede, kad ti se čini da se povratak u formu nikad neće dogoditi. Sve sam to prošao, i baš zato znam koliko je važno imati nekoga uz sebe tko razumije kroz što prolaziš.</p>
-          <p>Moj cilj je pokazati ti da fitness ne mora biti komplicirana i naporna obaveza, nego dio tvoje svakodnevice u kojoj uživaš. Ne postoji dobra i loša hrana, samo izbori koje pravimo i sklad koji tražimo. Kretanje i treniranje nisu kazna, oni ti zapravo vraćaju energiju, samopouzdanje i osjećaj da imaš kontrolu nad svojim tijelom.</p>
-          <p>Vjerujem da svaka osoba, uz prave smjernice i vlastiti trud, može doći do rezultata koji želi. Ti taj put ne moraš proći sam. Uz nekoga tko je to sve već prošao i tko će te voditi korak po korak, put je puno lakši, a rezultati dolaze brže i traju duže.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- USLUGE -->
-  <section id="usluge">
-    <div class="wrap">
-      <div class="section-head" style="text-align:center; margin-left:auto; margin-right:auto;">
-        <div class="eyebrow" style="justify-content:center;">Usluge</div>
-        <h2>Odaberi format koji ti odgovara</h2>
-        <p>Oba pristupa vode istom cilju.</p>
-      </div>
-      <div class="services-grid">
-        <div class="service-card featured">
-          <span class="service-tag">Najtraženije</span>
-          <h3>Online Coaching</h3>
-          <p class="desc" id="onlineDesc">Potpuno personaliziran plan treninga i prehrane, praćenje napretka kroz aplikaciju, i direktan kontakt sa mnom kad god ti zatreba.</p>
-          <ul class="service-features" id="onlineFeatures">
-            <li>Individualni plan treninga prilagođen tvojoj opremi i rasporedu</li>
-            <li>Plan prehrane bez ekstremnih zabrana</li>
-            <li>Praćenje napretka kroz aplikaciju</li>
-            <li>Tjedne korekcije na temelju tvojih rezultata</li>
-          </ul>
-          <a href="prijava.html" class="btn btn-primary">Zatraži ponudu</a>
-        </div>
-        <div class="service-card">
-          <span class="service-tag">Osobni trening</span>
-          <h3>Trening Uživo</h3>
-          <p class="desc" id="uzivoDesc">Ako si iz Zagreba, treniraj sa mnom uživo u mojoj privatnoj teretani, gdje imaš moju punu pažnju, prostor za sebe i tehniku koja se ispravlja u hodu, bez čekanja na spravu i bez tuđih pogleda.</p>
-          <ul class="service-features" id="uzivoFeatures">
-            <li>Individualno vođenje i stalna podrška trenera</li>
-            <li>Treniraj bez gužve</li>
-            <li>Praćenje napretka</li>
-            <li>Lokacija: Moja privatna teretana Fit Arena Dubrava</li>
-          </ul>
-          <a href="prijava.html" class="btn btn-primary">Zatraži ponudu</a>
-        </div>
       </div>
     </div>
   </section>
@@ -998,8 +935,45 @@
     </div>
   </section>
 
+  <!-- USLUGE -->
+  <section id="usluge">
+    <div class="wrap">
+      <div class="section-head" style="text-align:center; margin-left:auto; margin-right:auto;">
+        <div class="eyebrow" style="justify-content:center;">Usluge</div>
+        <h2>Odaberi format koji ti odgovara</h2>
+        <p>Oba pristupa vode istom cilju.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card featured">
+          <span class="service-tag">Najtraženije</span>
+          <h3>Online Coaching</h3>
+          <p class="desc" id="onlineDesc">Potpuno personaliziran plan treninga i prehrane, praćenje napretka kroz aplikaciju, i direktan kontakt sa mnom kad god ti zatreba.</p>
+          <ul class="service-features" id="onlineFeatures">
+            <li>Individualni plan treninga prilagođen tvojoj opremi i rasporedu</li>
+            <li>Plan prehrane bez ekstremnih zabrana</li>
+            <li>Praćenje napretka kroz aplikaciju</li>
+            <li>Tjedne korekcije na temelju tvojih rezultata</li>
+          </ul>
+          <a href="prijava.html" class="btn btn-primary">Besplatne konzultacije</a>
+        </div>
+        <div class="service-card">
+          <span class="service-tag">Osobni trening</span>
+          <h3>Trening Uživo</h3>
+          <p class="desc" id="uzivoDesc">Ako si iz Zagreba, treniraj sa mnom uživo u mojoj privatnoj teretani, gdje imaš moju punu pažnju, prostor za sebe i tehniku koja se ispravlja u hodu, bez čekanja na spravu i bez tuđih pogleda.</p>
+          <ul class="service-features" id="uzivoFeatures">
+            <li>Individualno vođenje i stalna podrška trenera</li>
+            <li>Treniraj bez gužve</li>
+            <li>Praćenje napretka</li>
+            <li>Lokacija: Moja privatna teretana Fit Arena Dubrava</li>
+          </ul>
+          <a href="prijava.html" class="btn btn-primary">Besplatne konzultacije</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- KAKO RADIMO -->
-  <section id="proces">
+  <section id="proces" style="border-top:1px solid var(--line);">
     <div class="wrap">
       <div class="section-head" style="text-align:center; margin-left:auto; margin-right:auto;">
         <div class="eyebrow" style="justify-content:center;">Proces</div>
@@ -1010,11 +984,11 @@
           <span class="process-num">01</span>
           <h3>Prijava</h3>
           <p>Javiš se putem prijavnice ili poruke na Instagramu.</p>
-          <a href="prijava.html" class="btn btn-primary btn-sm" style="margin-top:12px;">Otvori prijavnicu →</a>
+          <a href="prijava.html" class="btn btn-primary btn-sm" style="margin-top:12px;">Besplatne konzultacije →</a>
         </div>
         <div class="process-item">
           <span class="process-num">02</span>
-          <h3>Razgovor</h3>
+          <h3>Besplatne konzultacije</h3>
           <p>Obavimo kratki razgovor da mi detaljnije opišeš svoju situaciju, definiramo cilj i realan raspored.</p>
         </div>
         <div class="process-item">
@@ -1030,6 +1004,33 @@
       </div>
     </div>
   </section>
+
+  <!-- O MENI -->
+  <section class="about" id="o-meni">
+    <div class="wrap about-grid">
+      <div class="about-carousel" id="aboutCarousel">
+        <div class="carousel-track" id="carouselTrack">
+          <!-- Slike se generiraju automatski iz content/settings.json (about_carousel) -->
+        </div>
+        <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Prethodna slika">‹</button>
+        <button class="carousel-btn carousel-next" id="carouselNext" aria-label="Sljedeća slika">›</button>
+        <div class="carousel-dots" id="carouselDots"></div>
+      </div>
+      <div class="about-text">
+        <div class="eyebrow">O meni</div>
+        <h2 id="aboutTitle" style="text-transform:uppercase; font-size:2rem; margin-bottom:20px;">Bok, ja sam Mario</h2>
+        <div id="aboutText">
+          <p>Nisam se rodio fit, baš kao ni ti. Kao klinac sam probao razne sportove, ali nijedan me nije stvarno zadržao, sve dok sa 17 godina nisam prvi put ušao u teretanu. Nešto se tu upalilo u meni. Svidjelo mi se što je bilo teško, ali sam za trud dobivao rezultat koji sam mogao vidjeti i osjetiti.</p>
+          <p>Nisam odmah sve znao. Satima sam istraživao, čitao i isprobavao razne stvari na sebi, dok nisam naučio kako moje tijelo zapravo reagira i radi. Onda su me prijatelji počeli pitati za savjete, pa sam počeo trenirati i njih. Tada sam prvi put u životu osjetio da svojim znanjem i iskustvom stvarno nekome pomažem, i to je bio trenutak kad sam znao što želim raditi.</p>
+          <p>Završio sam Bodybuilding i fitness učilište i od tada radim s ljudima. Do sada sam surađivao s preko 70 klijenata, svaki sa svojom pričom, svojim ciljem i svojim izazovima.</p>
+          <p>Znam kako je biti nezadovoljan svojim tijelom. Znam kako je misliti da se taj višak na trbuhu nikad neće maknuti, ili da mišići jednostavno neće rasti koliko god se trudio. Znam i kako je nakon ozljede, kad ti se čini da se povratak u formu nikad neće dogoditi. Sve sam to prošao, i baš zato znam koliko je važno imati nekoga uz sebe tko razumije kroz što prolaziš.</p>
+          <p>Moj cilj je pokazati ti da fitness ne mora biti komplicirana i naporna obaveza, nego dio tvoje svakodnevice u kojoj uživaš. Ne postoji dobra i loša hrana, samo izbori koje pravimo i sklad koji tražimo. Kretanje i treniranje nisu kazna, oni ti zapravo vraćaju energiju, samopouzdanje i osjećaj da imaš kontrolu nad svojim tijelom.</p>
+          <p>Vjerujem da svaka osoba, uz prave smjernice i vlastiti trud, može doći do rezultata koji želi. Ti taj put ne moraš proći sam. Uz nekoga tko je to sve već prošao i tko će te voditi korak po korak, put je puno lakši, a rezultati dolaze brže i traju duže.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CESTA PITANJA -->
   <section id="pitanja" class="faq-section">
     <style>
@@ -1126,7 +1127,7 @@
       <div class="contact-info" style="text-align:center;">
         <div class="eyebrow" style="justify-content:center;">Kontakt</div>
         <h2 style="text-transform:uppercase; font-size:2rem; margin-bottom:20px;">Krenimo</h2>
-        <p>Ispuni formu i javljam se u roku 24-48h. Ili me kontaktiraj direktno:</p>
+        <p>Ispuni formu i javljam se unutar 24h. Ili me kontaktiraj direktno:</p>
         <a class="contact-channel" id="contactEmail" href="mailto:mariostankoviccoaching@gmail.com">
           <span>Email</span>
           mariostankoviccoaching@gmail.com
@@ -1181,7 +1182,7 @@
           <textarea id="poruka" name="poruka" required placeholder="Reci mi malo o svom cilju i trenutnoj situaciji..."></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary submit-btn">Pošalji upit</button>
+        <button type="submit" class="btn btn-primary submit-btn">Besplatne konzultacije</button>
       </form>
     </div>
   </section>

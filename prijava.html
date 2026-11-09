@@ -388,6 +388,15 @@
 </main>
 
 <script>
+  // Ako je u linku ?format=uzivo (ili online), automatski odaberi tu opciju
+  (function(){
+    const f = new URLSearchParams(location.search).get('format');
+    if(!f) return;
+    const r = document.querySelector('input[name="format"][value="' + f + '"]');
+    if(r) r.checked = true;
+  })();
+</script>
+<script>
   // Lagano pojavljivanje dijelova forme pri skrolanju
   (function(){
     if(!('IntersectionObserver' in window)) return;

@@ -902,6 +902,12 @@
   .blue-band .btn-primary{background:#fff !important; color:#0A0C10; box-shadow:0 10px 30px -10px rgba(10,12,16,0.5);}
   .blue-band .btn-primary:hover{background:#EAF3FF !important;}
 
+  /* Točkice uz strelice */
+  .scroller-arrows-below{align-items:center;}
+  .scroll-dots{display:flex; gap:8px; align-items:center;}
+  .scroll-dot{width:7px; height:7px; border-radius:50%; background:var(--line); border:none; padding:0; cursor:pointer; transition:background 0.2s ease, width 0.2s ease;}
+  .scroll-dot.active{background:var(--grad); width:22px; border-radius:4px;}
+
   /* Animacije pri skrolanju */
   .reveal{opacity:0; transform:translateY(26px); transition:opacity 0.7s ease, transform 0.7s ease;}
   .reveal.in{opacity:1; transform:none;}
@@ -921,6 +927,7 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="#transformacije">Transformacije</a></li>
       <li><a href="#usluge">Usluge</a></li>
+      <li><a href="/privatna-teretana-zagreb">Trening uživo</a></li>
       <li><a href="#o-meni">O meni</a></li>
       <li><a href="prijava.html" class="nav-cta">Besplatne konzultacije</a></li>
     </ul>
@@ -976,6 +983,7 @@
         </div>
         <div class="scroller-arrows-below">
           <button class="scroller-arrow-below" id="compareScrollPrev" aria-label="Prethodna transformacija">‹</button>
+          <div class="scroll-dots" id="compareDots"></div>
           <button class="scroller-arrow-below" id="compareScrollNext" aria-label="Sljedeća transformacija">›</button>
         </div>
       </div>
@@ -1295,6 +1303,7 @@
           }
         </div>
       `).join('');
+      initDots('compareGrid', 'compareDots');
     })
     .catch(() => {});
 
@@ -1399,6 +1408,30 @@
       initCarousel();
     })
     .catch(() => { initCarousel(); });
+
+
+  // Točkice za klizač (pokazuju na kojoj si slici, klik skoči na sliku)
+  function initDots(gridId, dotsId){
+    const grid = document.getElementById(gridId), wrap = document.getElementById(dotsId);
+    if(!grid || !wrap) return;
+    const items = [...grid.children];
+    if(items.length < 2){ wrap.innerHTML = ''; return; }
+    const step = () => items[0].getBoundingClientRect().width + 24;
+    wrap.innerHTML = '';
+    items.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'scroll-dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', 'Slika ' + (i + 1));
+      d.addEventListener('click', () => grid.scrollTo({left: i * step(), behavior:'smooth'}));
+      wrap.appendChild(d);
+    });
+    const dots = [...wrap.children];
+    grid.addEventListener('scroll', () => {
+      const atEnd = grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 4;
+      const i = atEnd ? items.length - 1 : Math.round(grid.scrollLeft / step());
+      dots.forEach((d, k) => d.classList.toggle('active', k === i));
+    }, {passive:true});
+  }
 
   // Scroll arrows for transformations and testimonials rows
   function wireScroller(gridId, prevId, nextId){

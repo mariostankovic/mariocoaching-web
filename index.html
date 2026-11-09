@@ -57,6 +57,8 @@
     --blue:#3D7FFF;
     --blue-deep:#16233D;
     --blue-glow:rgba(61,127,255,0.18);
+    --cyan:#3FD8FF;
+    --grad:linear-gradient(100deg, #3D7FFF 0%, #3FB4FF 55%, #3FD8FF 100%);
     --paper:#F2F4F8;
     --ice:#A9B4C7;
     --ice-dim:#6B7688;
@@ -848,6 +850,63 @@
   }
   .footer-socials a:hover{color:var(--blue);}
 
+  /* ---------- ACCENT: električna plava -> cijan ---------- */
+  .eyebrow{color:var(--cyan);}
+  .eyebrow::before{background:var(--grad);}
+  .hero h1 em{background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .btn-primary, .nav-cta{
+    background:var(--grad); background-size:140% 100%; background-position:0% 0;
+    box-shadow:0 8px 28px -10px rgba(63,180,255,0.65);
+    transition:transform 0.15s ease, box-shadow 0.2s ease, background-position 0.3s ease;
+  }
+  .btn-primary:hover, .nav-cta:hover{
+    background:var(--grad); background-size:140% 100%; background-position:100% 0;
+    box-shadow:0 12px 36px -10px rgba(63,216,255,0.8);
+  }
+  .stat-num{background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .stat-label span{color:var(--cyan) !important;}
+  .service-tag, .process-num, .testimonial-name, .blog-cat, .contact-channel span{color:var(--cyan);}
+  .service-features li::before{color:var(--cyan);}
+  .service-card.featured{box-shadow:0 0 0 1px rgba(63,180,255,0.35), 0 24px 60px -30px rgba(63,180,255,0.55);}
+  .carousel-dot.active{background:var(--grad);}
+  .faq-q-icon{border-color:var(--cyan) !important; color:var(--cyan) !important;}
+  .faq-item[open] summary, .faq-item summary:hover{color:var(--cyan) !important;}
+  .faq-item[open] .faq-chevron{border-color:var(--cyan) !important;}
+  .faq-answer a{color:var(--cyan) !important;}
+  .hero{overflow:hidden;}
+  .hero::after{
+    content:''; position:absolute; left:-160px; bottom:-200px; width:560px; height:560px; pointer-events:none;
+    background:radial-gradient(circle, rgba(63,216,255,0.12) 0%, transparent 65%);
+    animation:glowFloat 9s ease-in-out infinite alternate;
+  }
+  @keyframes glowFloat{ from{transform:translate(0,0);} to{transform:translate(80px,-60px);} }
+
+  /* Plava sekcija (proces) */
+  .blue-band{
+    position:relative; overflow:hidden;
+    background:linear-gradient(110deg, #1E4FD8 0%, #2F7BFF 45%, #2AB8F0 100%) !important;
+    border:0 !important;
+  }
+  .blue-band::before{
+    content:''; position:absolute; inset:0; pointer-events:none;
+    background:radial-gradient(circle at 12% 15%, rgba(255,255,255,0.16) 0%, transparent 40%),
+               radial-gradient(circle at 88% 95%, rgba(10,12,16,0.28) 0%, transparent 45%);
+  }
+  .blue-band .wrap{position:relative;}
+  .blue-band .eyebrow{color:rgba(255,255,255,0.9);}
+  .blue-band .eyebrow::before{background:rgba(255,255,255,0.9);}
+  .blue-band h2, .blue-band h3{color:#fff;}
+  .blue-band .process-item{border-top-color:rgba(255,255,255,0.35);}
+  .blue-band .process-num{color:#fff; opacity:0.85;}
+  .blue-band .process-item p{color:rgba(255,255,255,0.85);}
+  .blue-band .btn-primary{background:#fff !important; color:#0A0C10; box-shadow:0 10px 30px -10px rgba(10,12,16,0.5);}
+  .blue-band .btn-primary:hover{background:#EAF3FF !important;}
+
+  /* Animacije pri skrolanju */
+  .reveal{opacity:0; transform:translateY(26px); transition:opacity 0.7s ease, transform 0.7s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media (prefers-reduced-motion: reduce){ .reveal{opacity:1; transform:none;} .hero::after{animation:none;} }
+
   :focus-visible{
     outline:2px solid var(--blue);
     outline-offset:2px;
@@ -967,13 +1026,14 @@
             <li>Lokacija: Moja privatna teretana Fit Arena Dubrava</li>
           </ul>
           <a href="prijava.html" class="btn btn-primary">Besplatne konzultacije</a>
+          <a href="/privatna-teretana-zagreb" class="btn btn-ghost" style="margin-left:8px;">Saznaj više</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- KAKO RADIMO -->
-  <section id="proces" style="border-top:1px solid var(--line);">
+  <section id="proces" class="blue-band">
     <div class="wrap">
       <div class="section-head" style="text-align:center; margin-left:auto; margin-right:auto;">
         <div class="eyebrow" style="justify-content:center;">Proces</div>
@@ -1153,6 +1213,7 @@
 
       <form name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="hvala.html">
         <input type="hidden" name="form-name" value="kontakt">
+        <input type="hidden" name="stranica" value="pocetna">
         <p style="display:none;">
           <label>Ne popunjavaj ovo polje: <input name="bot-field"></label>
         </p>
@@ -1173,6 +1234,7 @@
           <select id="usluga" name="usluga">
             <option value="online">Online coaching</option>
             <option value="uzivo">Trening uživo</option>
+            <option value="grupa">Trening u paru ili trojkama</option>
             <option value="nisam-siguran">Nisam siguran/na, treba mi savjet</option>
           </select>
         </div>
@@ -1258,6 +1320,15 @@
       const heroTitle = document.getElementById('heroTitle');
       if(heroTitle && data.hero_title){
         heroTitle.textContent = data.hero_title;
+        // istakni dio naslova u plavo-cijan prijelazu
+        const hl = 'izgledati i osjećati se dobro';
+        const t = heroTitle.textContent, k = t.indexOf(hl);
+        if(k !== -1){
+          heroTitle.innerHTML = '';
+          heroTitle.append(t.slice(0, k));
+          const em = document.createElement('em'); em.textContent = hl; heroTitle.append(em);
+          heroTitle.append(t.slice(k + hl.length));
+        }
       }
       const heroSubline = document.getElementById('heroSubline');
       if(heroSubline && data.hero_subline){
@@ -1403,6 +1474,41 @@
       if(Math.abs(diff) > 40){ diff < 0 ? goTo(current + 1) : goTo(current - 1); }
     });
   }
+
+  // Animacije pri skrolanju (elementi koji se učitaju iz JSON-a se uhvate s malim zakašnjenjem)
+  function initReveal(){
+    if(!('IntersectionObserver' in window)) return;
+    const sel = '.section-head, .service-card, .process-item, .about-carousel, .about-text, .faq-item, .contact-grid > *, .compare-scroller, .testimonials-scroller';
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if(!e.isIntersecting) return;
+        const el = e.target;
+        const sibs = [...el.parentElement.children].filter(c => c.classList.contains('reveal'));
+        el.style.transitionDelay = (Math.min(5, Math.max(0, sibs.indexOf(el))) * 90) + 'ms';
+        el.classList.add('in'); io.unobserve(el);
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll(sel).forEach(el => { if(!el.classList.contains('reveal')){ el.classList.add('reveal'); io.observe(el); } });
+  }
+  initReveal();
+
+  // Brojke u heroju se odbroje (6+, 70+)
+  (function(){
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    document.querySelectorAll('.stat-num').forEach(el => {
+      const m = el.textContent.trim().match(/^([0-9]+(?:\.[0-9]+)?)(.*)$/);
+      if(!m) return;
+      const end = parseFloat(m[1]), suffix = m[2], dec = (m[1].split('.')[1] || '').length;
+      const t0 = performance.now(), dur = 1400;
+      el.textContent = (0).toFixed(dec) + suffix;
+      const tick = now => {
+        const p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+        el.textContent = (end * e).toFixed(dec) + suffix;
+        if(p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    });
+  })();
 </script>
 
 </body>

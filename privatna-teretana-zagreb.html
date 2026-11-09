@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privatna teretana Zagreb Dubrava | Osobni trener Mario Stanković</title>
-<meta name="description" content="Privatna teretana u Dubravi (Zagreb) s osobnim trenerom. Treniraj 1 na 1 ili u paru, bez gužve i čekanja na sprave. Paket 12 treninga 360 €. Besplatne konzultacije.">
+<meta name="description" content="Privatna teretana u Dubravi (Zagreb) s osobnim trenerom. Treniraj 1 na 1 ili u manjoj grupi (2-3 osobe), bez gužve i čekanja na sprave. Paket 12 treninga 360 €. Besplatne konzultacije.">
 <link rel="canonical" href="https://mario-stankovic.com/privatna-teretana-zagreb">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
@@ -22,7 +22,7 @@
   "@context": "https://schema.org",
   "@type": "ExerciseGym",
   "name": "Osobni trener - Mario Stanković",
-  "description": "Privatna teretana u Dubravi (Zagreb) s osobnim treninzima 1 na 1 i treninzima u paru ili maloj grupi.",
+  "description": "Privatna teretana u Dubravi (Zagreb) s osobnim treninzima 1 na 1 i treninzima u manjoj grupi (2-3 osobe).",
   "url": "https://mario-stankovic.com/privatna-teretana-zagreb",
   "email": "mariostankoviccoaching@gmail.com",
   "image": "https://mario-stankovic.com/images/hero-portret.jpg",
@@ -233,8 +233,6 @@
   .space-dots{display:flex; gap:8px;}
   .space-dot{width:7px; height:7px; border-radius:50%; background:var(--line); border:none; padding:0; cursor:pointer; transition:background 0.2s ease, width 0.2s ease;}
   .space-dot.active{background:var(--blue); width:22px; border-radius:4px;}
-  .space-hint{text-align:center; margin-top:14px; font-family:var(--mono); font-size:0.75rem; color:var(--ice-dim); letter-spacing:0.08em; text-transform:uppercase;}
-  @media (min-width:861px){ .space-hint{display:none;} }
 
   /* TRENING SA MNOM */
   .coach-section{background:var(--panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
@@ -506,7 +504,7 @@
         <li><strong>Neugodno ti je u velikoj teretani</strong> i treba ti mirniji prostor.</li>
         <li><strong>Treniraš, ali ne napreduješ</strong> i treba ti netko tko će složiti pravi plan.</li>
         <li><strong>Vraćaš se nakon pauze ili ozljede</strong> i želiš to napraviti sigurno.</li>
-        <li><strong>Želiš trenirati u paru</strong> s partnerom ili prijateljem, uz punu podršku trenera.</li>
+        <li><strong>Želiš trenirati u manjoj grupi (2-3 osobe)</strong> s partnerom ili prijateljima, uz punu podršku trenera.</li>
       </ul>
     </div>
   </section>
@@ -532,7 +530,6 @@
       <div class="space-dots" id="spaceDots"></div>
       <button class="scroller-arrow" id="spaceNext" aria-label="Sljedeća slika">›</button>
     </div>
-    <div class="space-hint">Povuci prstom za više ›</div>
   </section>
 
   <!-- PROCES -->
@@ -546,7 +543,7 @@
         <div class="process-item">
           <span class="process-num">01</span>
           <h3>Javiš se</h3>
-          <p>Ispuni kratku formu ispod ili mi pošalji poruku na Instagramu.</p>
+          <p>Ispuni kratku <a href="prijava.html?format=uzivo" style="color:#fff; text-decoration:underline;">prijavnicu</a> ili mi pošalji poruku na Instagramu.</p>
         </div>
         <div class="process-item">
           <span class="process-num">02</span>
@@ -628,8 +625,8 @@
           <a href="prijava.html?format=uzivo" class="btn btn-primary" data-usluga="uzivo">Besplatne konzultacije</a>
         </div>
         <div class="price-card">
-          <div class="price-tag">Trening u paru ili trojkama</div>
-          <h3>Mala grupa 2 do 3 osobe</h3>
+          <div class="price-tag">Grupni trening</div>
+          <h3>Trening u manjoj grupi (2-3 osobe)</h3>
           <div class="price">Na upit</div>
           <div class="price-note">Povoljnije po osobi nego individualno</div>
           <ul>
@@ -674,7 +671,7 @@
       <div class="contact-info">
         <div class="eyebrow">Kontakt</div>
         <h2>Rezerviraj besplatne konzultacije</h2>
-        <p>Ispuni formu i javljam se unutar 24h da dogovorimo termin. Ili me kontaktiraj direktno:</p>
+        <p>Ispuni <a href="prijava.html?format=uzivo" style="color:var(--cyan); text-decoration:underline;">prijavnicu</a> i javljam se unutar 24h da dogovorimo termin. Ili me kontaktiraj direktno:</p>
         <a class="contact-channel" href="mailto:mariostankoviccoaching@gmail.com"><span>Email</span>mariostankoviccoaching@gmail.com</a>
         <a class="contact-channel" href="https://www.instagram.com/mariostankovicc/" target="_blank" rel="noopener"><span>Instagram</span>@mariostankovicc</a>
         <a class="contact-channel" href="#lokacija"><span>Teretana</span>Ulica Križnog puta 19, Dubrava</a>
@@ -698,7 +695,7 @@
           <label for="usluga">Zanima me</label>
           <select id="usluga" name="usluga">
             <option value="uzivo" selected>Osobni trening 1 na 1</option>
-            <option value="grupa">Trening u paru ili trojkama</option>
+            <option value="grupa">Trening u manjoj grupi (2-3 osobe)</option>
             <option value="online">Online coaching</option>
             <option value="nisam-siguran">Nisam siguran/na, treba mi savjet</option>
           </select>
